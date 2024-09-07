@@ -1,36 +1,32 @@
 ﻿using Model.Enums;
 
-namespace Model
+namespace Model;
+public class Pm
 {
-    /// <summary>
-    /// Punti di misura o canali
-    /// </summary>
-    public partial class Pm
-    {
-        public required string Id { get; set; }
-        public required string DevId { get; set; }
-        public required string Channel { get; set; }
-        public required string Tag { get; set; }
-        public required string Name { get; set; }
-        public DateOnly Installed { get; set; }
-        public DateOnly? Dismissed { get; set; }
-        public double ReadOffset { get; set; } // quantità fissa da aggiungere in certi casi alle letture
-        public bool? OnReport { get; set; }
-        public PmStates? PmStatus { get; set; }
-        public bool? FakePm { get; set; } // Non si tratta di un Pm fisico
-        public bool? Validate { get; set; }
-        public double? WarningLo { get; set; }
-        public double? WarningHi { get; set; }
-        public double? AlarmLo { get; set; }
-        public double? AlarmHi { get; set; }
-        public bool AutoImport { get; set; }
-        public bool CanImport { get; set; }
-        public string? SourceTable { get; set; }
-        public string? SourceFilter { get; set; }
-        public int FormulaId { get; set; }
-        public DateOnly LastImport { get; set; }
-
-        public virtual Device? Device { get; set; }
-        public virtual Formula? Formula { get; set; }
-    }
+    public Guid Guid { get; set; }
+    public required string DeviceCode { get; set; } // Code è una chiave alternativa per device
+    public required string Id { get; set; }
+    public string? Code { get; set; } // campo calcolato: DeviceCode + Id
+    public required string Tag { get; set; } // codice di targa
+    public required string Name { get; set; }
+    public DateOnly PlacementDate { get; set; }
+    public DateOnly? DismissionDate { get; set; }
+    public PmStates? Status { get; set; }
+    public ReportType? Report { get; set; }
+    public bool? VirtualPm { get; set; } // il Pm non è fisico
+    public bool? Validate { get; set; } // Le misure al Pm devono essere validate
+    public double? Offset { get; set; } // quantità fissa da aggiungere alle misure
+    public string? Unit { get; set; } // unità di misura
+    public bool? AutoImport { get; set; } // Pm ad importazione automatica delle letture da sistema esterno
+    public bool? CanImport { get; set; } // Non esistono impedimenti all'importazione delle letture
+    public bool? Selected { get; set; } // Il Pm è selezionato per l'importazione delle letture
+    public int? Formula { get; set; } // formula di ingegnerizzazione
+    public DateOnly? LastImport { get; set; } // data dell'ultima importazione
+    public string? SourceTable { get; set; } // Nome della tabella sorgente contenente le misure da preimportare
+    public string? SourceFilter { get; set; } // nome del discriminante (tipicamente coincide con il codice Pm)
+    public double? AlarmHi { get; set; } // Soglia superiore di allarme
+    public double? WarningHi { get; set; } // Soglia superiore di attenzione
+    public double? WarningLo { get; set; } // Soglia inferiore di attenzione
+    public double? AlarmLo { get; set; } // Soglia inferiore di allarme
+    public required DateTime Version { get; set; }
 }

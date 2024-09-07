@@ -1,5 +1,5 @@
 ﻿namespace Model;
-public class Kind
+public class Role
 {
     public required string Id { get; set; }
     public required string Name { get; set; }

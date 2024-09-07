@@ -1,16 +1,8 @@
-﻿using System.Collections.ObjectModel;
-
-namespace Model
+﻿namespace Model;
+public class Formula
 {
-    /// <summary>
-    /// algoritmi di ingegnerizzazione
-    /// </summary>
-    public partial class Formula
-    {
-        public required int Id { get; set; }
-        public required string FormulaText { get; set; }
-        public int? ArgsNum { get; set; }
-
-        public virtual ObservableCollection<Pm> Pm { get; set; } = [];
-    }
+    public required int Id { get; set; }
+    public required string Template { get; set; } // testo della formula, con segnaposti per i parametri
+    public int? ArgsCount { get; set; } // numero di parametri richiesto dalla formula
+    public required DateTime Version { get; set; }
 }

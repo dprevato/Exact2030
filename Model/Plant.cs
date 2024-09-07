@@ -1,25 +1,21 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Model
+namespace Model;
+public class Plant
 {
-    /// <summary>
-    /// anagrafica impianti
-    /// </summary>
-    public partial class Plant
-    {
-        public required string Id { get; set; }
-        public required string Name { get; set; }
-        public string? Details { get; set; }
-        public DateOnly Built { get; set; }
-        public DateOnly? Dismissed { get; set; }
-        public string AreaId { get; set; }
-        public double? MaxAltitude { get; set; }
-        public double? MinAltitude { get; set; }
+    public Guid Guid { get; set; }
+    public required string RegionId { get; set; }
+    public required string Id { get; set; } // codice Impianto - unique
+    public string? Code { get; set; } // campo calcolato - RegionId + Id la combinazione è univoca
+    public required string Name { get; set; } // nome breve
+    public string? Details { get; set; } // nome esteso - descrizione
+    public decimal? MaxAltitude { get; set; } // 2 decimali
+    public decimal? MinAltitude { get; set; }
+    public DateOnly? Built { get; set; }
+    public DateOnly? Dismissed { get; set; }
+    public required DateTime Version { get; set; } // Timestamp
 
-        public virtual Area? Area { get; set; }
-        public virtual ObservableCollection<Device> Device { get; set; } = [];
-        public virtual ObservableCollection<Journal> Journal { get; set; } = [];
-        public virtual ObservableCollection<Personplant> Personplant { get; set; } = [];
-        public virtual ObservableCollection<Plantdata> Plantdata { get; set; } = [];
-    }
+    public ObservableCollection<Warden>? Wardens { get; set; } // personale di guardiania dell'impianto
+    public ObservableCollection<PlantData>? PlantInfo { get; set; }
+    public virtual ObservableCollection<Journal>? Journal { get; set; }
 }

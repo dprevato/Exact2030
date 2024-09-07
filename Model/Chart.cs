@@ -1,21 +1,17 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Model
+namespace Model;
+public class Chart
 {
-    /// <summary>
-    /// Singolo oggetto grafico
-    /// </summary>
-    public partial class Chart
-    {
-        public int DocId { get; set; }
-        public int Id { get; set; }
-        public int? PrintOrder { get; set; }
-        public string? Title { get; set; }
-        public string? YaxisTitle { get; set; }
-        public float? MinY { get; set; }
-        public float? MaxY { get; set; }
-        public bool? Legend { get; set; }
+    public required int SerieId { get; set; }
+    public required int Id { get; set; }
+    public required string Title { get; set; }
+    public bool? ShowLegend { get; set; }
+    public required string Author { get; set; }
+    public required DateTime Version { get; set; }
 
-        public virtual ObservableCollection<ChartData> ChartData { get; set; } = [];
-    }
+    public virtual ChartCollection? ChartCollection { get; set; }
+    public virtual ObservableCollection<ChartYAxis>? YAxis { get; set; }
+    public virtual ObservableCollection<ChartPlot>? Curves { get; set; }
+    public virtual ObservableCollection<ChartNote>? Annotations { get; set; }
 }

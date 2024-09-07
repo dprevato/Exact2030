@@ -16,8 +16,11 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\" />
-    <Folder Include="Events\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataServices\DataServices.csproj" />
   </ItemGroup>
 
   <ItemGroup>

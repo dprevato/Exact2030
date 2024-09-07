@@ -1,16 +1,13 @@
-﻿namespace Model
+﻿namespace Model;
+public class DeviceData
 {
-    /// <summary>
-    /// caratteristiche estese dei device
-    /// </summary>
-    public partial class DeviceData
-    {
-        public required string DevCode { get; set; }
-        public required int Id { get; set; }
-        public required string ItemName { get; set; }
-        public string? ItemUm { get; set; }
-        public string? ItemValue { get; set; }
+    public Guid Guid { get; set; }
+    public required string DeviceId { get; set; }
+    public required int ItemNo { get; set; }
+    public required string ItemName { get; set; }
+    public string? ItemUnit { get; set; }
+    public required string ItemValue { get; set; }
+    public required DateTime Version { get; set; }
 
-        public virtual Device? Device { get; set; }
-    }
+    public Device? Device { get; set; }
 }

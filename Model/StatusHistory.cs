@@ -1,14 +1,12 @@
-﻿namespace Model
+﻿using Model.Enums;
+
+namespace Model;
+public class StatusHistory
 {
-    /// <summary>
-    /// storico stati pdm
-    /// </summary>
-    public partial class StatusHistory
-    {
-        public required int Id { get; set; }
-        public required string PmId { get; set; }
-        public DateTime ChangedOn { get; set; }
-        public int Status { get; set; }
-        public string Details { get; set; }
-    }
+    public required Guid Guid { get; set; }
+    public required string PmCode { get; set; }
+    public required DateOnly NewDate { get; set; }
+    public required PmStates NewStatus { get; set; }
+    public string? Details { get; set; }
+    public required DateTime Version { get; set; }
 }
