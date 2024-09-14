@@ -26,12 +26,6 @@ partial class MainWindow
     /// </summary>
     private void InitializeComponent() {
         TablePanel = new TableLayoutPanel();
-        SS = new StatusStrip();
-        OperatorLabel = new ToolStripStatusLabel();
-        toolStripStatusLabel1 = new ToolStripStatusLabel();
-        MessageLabel = new ToolStripStatusLabel();
-        toolStripStatusLabel2 = new ToolStripStatusLabel();
-        CodeLabel = new ToolStripStatusLabel();
         TS = new ToolStrip();
         OperationsMenu = new ToolStripDropDownButton();
         ImportMenuItem = new ToolStripMenuItem();
@@ -69,7 +63,6 @@ partial class MainWindow
         KindsComboBox = new ToolStripComboBox();
         SubKindsComboBox = new ToolStripComboBox();
         TablePanel.SuspendLayout();
-        SS.SuspendLayout();
         TS.SuspendLayout();
         SuspendLayout();
         // 
@@ -78,7 +71,6 @@ partial class MainWindow
         TablePanel.BackColor = Color.FromArgb(192, 255, 255);
         TablePanel.ColumnCount = 1;
         TablePanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-        TablePanel.Controls.Add(SS, 0, 2);
         TablePanel.Controls.Add(TS, 0, 0);
         TablePanel.Dock = DockStyle.Fill;
         TablePanel.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
@@ -90,64 +82,6 @@ partial class MainWindow
         TablePanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 64F));
         TablePanel.Size = new Size(1959, 1174);
         TablePanel.TabIndex = 0;
-        // 
-        // SS
-        // 
-        SS.BackColor = SystemColors.Control;
-        SS.Dock = DockStyle.Fill;
-        SS.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        SS.GripMargin = new Padding(0);
-        SS.ImageScalingSize = new Size(24, 24);
-        SS.Items.AddRange(new ToolStripItem[] { OperatorLabel, toolStripStatusLabel1, MessageLabel, toolStripStatusLabel2, CodeLabel });
-        SS.Location = new Point(0, 1110);
-        SS.Name = "SS";
-        SS.Size = new Size(1959, 64);
-        SS.TabIndex = 1;
-        SS.Text = "statusStrip1";
-        // 
-        // OperatorLabel
-        // 
-        OperatorLabel.AutoSize = false;
-        OperatorLabel.Image = Properties.Resources.connected_user;
-        OperatorLabel.ImageAlign = ContentAlignment.MiddleLeft;
-        OperatorLabel.Name = "OperatorLabel";
-        OperatorLabel.Size = new Size(200, 57);
-        OperatorLabel.Text = "Operatore";
-        OperatorLabel.TextAlign = ContentAlignment.MiddleLeft;
-        // 
-        // toolStripStatusLabel1
-        // 
-        toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-        toolStripStatusLabel1.Size = new Size(18, 57);
-        toolStripStatusLabel1.Text = "|";
-        // 
-        // MessageLabel
-        // 
-        MessageLabel.BackColor = SystemColors.Control;
-        MessageLabel.Font = new Font("Segoe UI Variable Display Semib", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        MessageLabel.Image = Properties.Resources.button_info;
-        MessageLabel.ImageAlign = ContentAlignment.MiddleLeft;
-        MessageLabel.Name = "MessageLabel";
-        MessageLabel.Size = new Size(1382, 57);
-        MessageLabel.Spring = true;
-        MessageLabel.Text = "Messaggi";
-        MessageLabel.TextAlign = ContentAlignment.MiddleLeft;
-        // 
-        // toolStripStatusLabel2
-        // 
-        toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-        toolStripStatusLabel2.Size = new Size(18, 57);
-        toolStripStatusLabel2.Text = "|";
-        // 
-        // CodeLabel
-        // 
-        CodeLabel.AutoSize = false;
-        CodeLabel.Font = new Font("Segoe UI Variable Display", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        CodeLabel.Image = Properties.Resources.code;
-        CodeLabel.ImageAlign = ContentAlignment.MiddleLeft;
-        CodeLabel.Name = "CodeLabel";
-        CodeLabel.Size = new Size(326, 57);
-        CodeLabel.Text = "Code";
         // 
         // TS
         // 
@@ -165,26 +99,26 @@ partial class MainWindow
         // 
         OperationsMenu.DropDownItems.AddRange(new ToolStripItem[] { ImportMenuItem, ExportMenuItem, toolStripSeparator1, ValidationMenuItem, toolStripSeparator2, ChartsMenuItem, ReportMenuItem, toolStripSeparator3, PrinterMenuItem, PreferencesMenuItem, toolStripSeparator4, ExitAppMenuItem });
         OperationsMenu.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        OperationsMenu.Image = Properties.Resources.Gears;
+        OperationsMenu.Image = Bitmap.FromFile("..\\..\\..\\Resources\\Gears.png");
         OperationsMenu.ImageAlign = ContentAlignment.MiddleLeft;
         OperationsMenu.ImageTransparentColor = Color.Magenta;
         OperationsMenu.Name = "OperationsMenu";
         OperationsMenu.Size = new Size(175, 59);
-        OperationsMenu.Text = "Operazioni";
+        OperationsMenu.Text = "&Operazioni";
         OperationsMenu.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // ImportMenuItem
         // 
         ImportMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AutoImportMenuItem, ManualImportMenuItem });
         ImportMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        ImportMenuItem.Image = Properties.Resources.database_import;
+        ImportMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\database-import.png");
         ImportMenuItem.Name = "ImportMenuItem";
         ImportMenuItem.Size = new Size(354, 42);
         ImportMenuItem.Text = "&Importazione misure";
         // 
         // AutoImportMenuItem
         // 
-        AutoImportMenuItem.Image = Properties.Resources.import_from_database;
+        AutoImportMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\import-from-database.png");
         AutoImportMenuItem.Name = "AutoImportMenuItem";
         AutoImportMenuItem.ShortcutKeys = Keys.F2;
         AutoImportMenuItem.Size = new Size(276, 38);
@@ -192,7 +126,7 @@ partial class MainWindow
         // 
         // ManualImportMenuItem
         // 
-        ManualImportMenuItem.Image = Properties.Resources.import_from_excel;
+        ManualImportMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\import-from-excel.png");
         ManualImportMenuItem.Name = "ManualImportMenuItem";
         ManualImportMenuItem.ShortcutKeys = Keys.Alt | Keys.F2;
         ManualImportMenuItem.Size = new Size(276, 38);
@@ -201,7 +135,7 @@ partial class MainWindow
         // ExportMenuItem
         // 
         ExportMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        ExportMenuItem.Image = Properties.Resources.export_to_excel;
+        ExportMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\export-to-excel.png");
         ExportMenuItem.Name = "ExportMenuItem";
         ExportMenuItem.ShortcutKeys = Keys.F3;
         ExportMenuItem.Size = new Size(354, 42);
@@ -215,7 +149,7 @@ partial class MainWindow
         // ValidationMenuItem
         // 
         ValidationMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        ValidationMenuItem.Image = Properties.Resources.button_ok;
+        ValidationMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\button-ok.png");
         ValidationMenuItem.Name = "ValidationMenuItem";
         ValidationMenuItem.ShortcutKeys = Keys.F4;
         ValidationMenuItem.Size = new Size(354, 42);
@@ -230,21 +164,21 @@ partial class MainWindow
         // 
         ChartsMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ChartSetupMenuItem, ChartShowMenuItem });
         ChartsMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        ChartsMenuItem.Image = Properties.Resources.charts_colors;
+        ChartsMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\charts-colors.png");
         ChartsMenuItem.Name = "ChartsMenuItem";
         ChartsMenuItem.Size = new Size(354, 42);
         ChartsMenuItem.Text = "&Grafici";
         // 
         // ChartSetupMenuItem
         // 
-        ChartSetupMenuItem.Image = Properties.Resources.charts_colors_line_edit;
+        ChartSetupMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\charts-colors-line-edit.png");
         ChartSetupMenuItem.Name = "ChartSetupMenuItem";
         ChartSetupMenuItem.Size = new Size(257, 38);
         ChartSetupMenuItem.Text = "&Impostazione";
         // 
         // ChartShowMenuItem
         // 
-        ChartShowMenuItem.Image = Properties.Resources.charts_colors_line;
+        ChartShowMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\charts-colors-line.png");
         ChartShowMenuItem.Name = "ChartShowMenuItem";
         ChartShowMenuItem.Size = new Size(257, 38);
         ChartShowMenuItem.Text = "&Visualizzazione";
@@ -253,14 +187,14 @@ partial class MainWindow
         // 
         ReportMenuItem.DropDownItems.AddRange(new ToolStripItem[] { TabReportMenuItem, ChartReportMenuItem });
         ReportMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        ReportMenuItem.Image = Properties.Resources.report;
+        ReportMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\report.png");
         ReportMenuItem.Name = "ReportMenuItem";
         ReportMenuItem.Size = new Size(354, 42);
         ReportMenuItem.Text = "&Report";
         // 
         // TabReportMenuItem
         // 
-        TabReportMenuItem.Image = Properties.Resources.table;
+        TabReportMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\table.png");
         TabReportMenuItem.Name = "TabReportMenuItem";
         TabReportMenuItem.ShortcutKeys = Keys.F5;
         TabReportMenuItem.Size = new Size(226, 38);
@@ -268,7 +202,7 @@ partial class MainWindow
         // 
         // ChartReportMenuItem
         // 
-        ChartReportMenuItem.Image = Properties.Resources.document_chart;
+        ChartReportMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\document-chart.png");
         ChartReportMenuItem.Name = "ChartReportMenuItem";
         ChartReportMenuItem.ShortcutKeys = Keys.F6;
         ChartReportMenuItem.Size = new Size(226, 38);
@@ -282,7 +216,7 @@ partial class MainWindow
         // PrinterMenuItem
         // 
         PrinterMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        PrinterMenuItem.Image = Properties.Resources.printer_edit;
+        PrinterMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\printer-edit.png");
         PrinterMenuItem.Name = "PrinterMenuItem";
         PrinterMenuItem.ShortcutKeys = Keys.Control | Keys.P;
         PrinterMenuItem.Size = new Size(354, 42);
@@ -292,7 +226,7 @@ partial class MainWindow
         // PreferencesMenuItem
         // 
         PreferencesMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        PreferencesMenuItem.Image = Properties.Resources.Preferences;
+        PreferencesMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\Preferences.png");
         PreferencesMenuItem.Name = "PreferencesMenuItem";
         PreferencesMenuItem.Size = new Size(354, 42);
         PreferencesMenuItem.Text = "&Preferenze";
@@ -306,7 +240,7 @@ partial class MainWindow
         // ExitAppMenuItem
         // 
         ExitAppMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        ExitAppMenuItem.Image = Properties.Resources.exit;
+        ExitAppMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\exit.png");
         ExitAppMenuItem.Name = "ExitAppMenuItem";
         ExitAppMenuItem.ShortcutKeys = Keys.Control | Keys.X;
         ExitAppMenuItem.Size = new Size(354, 42);
@@ -316,7 +250,7 @@ partial class MainWindow
         // 
         DataMenu.DropDownItems.AddRange(new ToolStripItem[] { EditRegionsMenuItem, EditPlantsMenuItem, toolStripSeparator5, JournalMenuItem, toolStripSeparator6, EditPmMenuItem, ReadingsMenuItem, toolStripSeparator7, EmployeesMenuItem });
         DataMenu.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        DataMenu.Image = Properties.Resources.Factory;
+        DataMenu.Image = Bitmap.FromFile("..\\..\\..\\Resources\\Factory.png");
         DataMenu.ImageAlign = ContentAlignment.MiddleLeft;
         DataMenu.ImageTransparentColor = Color.Magenta;
         DataMenu.Margin = new Padding(0, 2, 100, 3);
@@ -327,7 +261,7 @@ partial class MainWindow
         // EditRegionsMenuItem
         // 
         EditRegionsMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        EditRegionsMenuItem.Image = Properties.Resources.map;
+        EditRegionsMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\map.png");
         EditRegionsMenuItem.Name = "EditRegionsMenuItem";
         EditRegionsMenuItem.Size = new Size(293, 38);
         EditRegionsMenuItem.Text = "&Regioni";
@@ -335,7 +269,7 @@ partial class MainWindow
         // EditPlantsMenuItem
         // 
         EditPlantsMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        EditPlantsMenuItem.Image = Properties.Resources.location_on_map;
+        EditPlantsMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\location-on-map.png");
         EditPlantsMenuItem.Name = "EditPlantsMenuItem";
         EditPlantsMenuItem.Size = new Size(293, 38);
         EditPlantsMenuItem.Text = "&Impianti";
@@ -348,7 +282,7 @@ partial class MainWindow
         // JournalMenuItem
         // 
         JournalMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        JournalMenuItem.Image = Properties.Resources.book;
+        JournalMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\book.png");
         JournalMenuItem.Name = "JournalMenuItem";
         JournalMenuItem.Size = new Size(293, 38);
         JournalMenuItem.Text = "&Giornale Impianto";
@@ -361,7 +295,7 @@ partial class MainWindow
         // EditPmMenuItem
         // 
         EditPmMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        EditPmMenuItem.Image = Properties.Resources.dashboard;
+        EditPmMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\dashboard.png");
         EditPmMenuItem.Name = "EditPmMenuItem";
         EditPmMenuItem.Size = new Size(293, 38);
         EditPmMenuItem.Text = "&Punti di Misura";
@@ -369,7 +303,7 @@ partial class MainWindow
         // ReadingsMenuItem
         // 
         ReadingsMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        ReadingsMenuItem.Image = Properties.Resources.readings;
+        ReadingsMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\readings.png");
         ReadingsMenuItem.Name = "ReadingsMenuItem";
         ReadingsMenuItem.Size = new Size(293, 38);
         ReadingsMenuItem.Text = "&Misure";
@@ -383,21 +317,21 @@ partial class MainWindow
         // 
         EmployeesMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RegistryMenuItem, AdminMenuItem });
         EmployeesMenuItem.Font = new Font("Segoe UI Variable Display", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        EmployeesMenuItem.Image = Properties.Resources.big_data_people;
+        EmployeesMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\big-data-people.png");
         EmployeesMenuItem.Name = "EmployeesMenuItem";
         EmployeesMenuItem.Size = new Size(293, 38);
         EmployeesMenuItem.Text = "Personale &Addetto";
         // 
         // RegistryMenuItem
         // 
-        RegistryMenuItem.Image = Properties.Resources.employees;
+        RegistryMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\employees.png");
         RegistryMenuItem.Name = "RegistryMenuItem";
         RegistryMenuItem.Size = new Size(277, 38);
         RegistryMenuItem.Text = "&Anagrafe";
         // 
         // AdminMenuItem
         // 
-        AdminMenuItem.Image = Properties.Resources.people_employees_edit;
+        AdminMenuItem.Image = Bitmap.FromFile("..\\..\\..\\Resources\\people-employees-edit.png");
         AdminMenuItem.Name = "AdminMenuItem";
         AdminMenuItem.Size = new Size(277, 38);
         AdminMenuItem.Text = "Amministrazione";
@@ -447,8 +381,6 @@ partial class MainWindow
         Text = "Exact 2030";
         TablePanel.ResumeLayout(false);
         TablePanel.PerformLayout();
-        SS.ResumeLayout(false);
-        SS.PerformLayout();
         TS.ResumeLayout(false);
         TS.PerformLayout();
         ResumeLayout(false);
@@ -458,7 +390,6 @@ partial class MainWindow
 
     private TableLayoutPanel TablePanel;
     private ToolStrip TS;
-    private StatusStrip SS;
     private ToolStripDropDownButton OperationsMenu;
     private ToolStripDropDownButton DataMenu;
     private ToolStripMenuItem ImportMenuItem;
@@ -494,9 +425,4 @@ partial class MainWindow
     private ToolStripComboBox PlantsComboBox;
     private ToolStripComboBox KindsComboBox;
     private ToolStripComboBox SubKindsComboBox;
-    private ToolStripStatusLabel OperatorLabel;
-    private ToolStripStatusLabel toolStripStatusLabel1;
-    private ToolStripStatusLabel MessageLabel;
-    private ToolStripStatusLabel toolStripStatusLabel2;
-    private ToolStripStatusLabel CodeLabel;
 }
