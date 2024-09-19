@@ -6,7 +6,7 @@ public class Plant
     public Guid Guid { get; set; }
     public required string RegionId { get; set; }
     public required string Id { get; set; } // codice Impianto - unique
-    public string? Code { get; set; } // campo calcolato - RegionId + Id la combinazione è univoca
+    public string? PlantCode { get; set; } // campo calcolato - RegionId + Id la combinazione è univoca
     public required string Name { get; set; } // nome breve
     public string? Details { get; set; } // nome esteso - descrizione
     public decimal? MaxAltitude { get; set; } // 2 decimali
@@ -15,7 +15,10 @@ public class Plant
     public DateOnly? Dismissed { get; set; }
     public required DateTime Version { get; set; } // Timestamp
 
-    public ObservableCollection<Warden>? Wardens { get; set; } // personale di guardiania dell'impianto
-    public ObservableCollection<PlantData>? PlantInfo { get; set; }
-    public virtual ObservableCollection<Journal>? Journal { get; set; }
+    public virtual Region? Region { get; set; }
+    public virtual ObservableCollection<Warden>? Wardens { get; set; } = []; // personale di guardiania dell'impianto
+    public virtual ObservableCollection<PlantData>? PlantInfo { get; set; } = [];
+    public virtual ObservableCollection<Journal>? Journal { get; set; } = [];
+    public virtual ObservableCollection<Device>? Devices { get; set; } = [];
+
 }

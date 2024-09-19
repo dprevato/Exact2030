@@ -1,4 +1,6 @@
-﻿namespace Model;
+﻿using System.Collections.ObjectModel;
+
+namespace Model;
 public class ChartYAxis
 {
     public required int ChartId { get; set; }
@@ -9,4 +11,5 @@ public class ChartYAxis
     public required DateTime Version { get; set; }
 
     public virtual Chart? Chart { get; set; }
+    public virtual ObservableCollection<ChartNote>? Annotations { get; set; }
 }

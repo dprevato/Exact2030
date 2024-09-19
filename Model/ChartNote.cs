@@ -14,4 +14,6 @@ public class ChartNote
     public required DateTime Version { get; set; }
 
     public virtual Chart? Chart { get; set; }
+    public virtual ChartYAxis? YAxis { get; set; }
+
 }

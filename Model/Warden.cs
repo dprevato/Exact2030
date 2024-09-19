@@ -7,10 +7,8 @@ public class Warden
     public string? RoleId { get; set; } // default: warden
     public required DateOnly OnDuty { get; set; } // Inizio incarico
     public DateOnly? Retired { get; set; } // termine incarico
-    public required string RegionId { get; set; }
     public required DateTime Version { get; set; } // timestamp
 
-    public Region? Region { get; set; }
     public Plant? Plant { get; set; }
     public Employee? Employee { get; set; }
 }

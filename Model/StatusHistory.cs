@@ -9,4 +9,6 @@ public class StatusHistory
     public required PmStates NewStatus { get; set; }
     public string? Details { get; set; }
     public required DateTime Version { get; set; }
+
+    public virtual Pm? Pm { get; set; }
 }

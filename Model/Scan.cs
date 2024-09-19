@@ -10,4 +10,6 @@ public class Scan  // il nome Reading mi ha sempre fatto cagare, sinceramente
     public required DateTime Acquisition { get; set; } // La data di acquisizione non può mancare, per default è la data/ora di inserimento
     public DateTime? Validation { get; set; } // data/ora validazione
     public required DateTime Version { get; set; }
+
+    public virtual Pm? Pm { get; set; }
 }
